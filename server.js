@@ -5,8 +5,11 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
 app.get("/", function(req, res){
-    res.send("Hello World");
+    res.render('index');
 });
 
 app.listen(PORT, function(){
